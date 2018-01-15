@@ -5,9 +5,12 @@ import BlogPostsList from '../components/BlogPostsList';
 const Blog = ({ data }) => {
   const { allMarkdownRemark: { edges } } = data;
   const blogPosts = edges.map(edge => {
-    const { node: { frontmatter: { title } } } = edge;
+    const { node: { frontmatter: { title, date }, id, fields: { slug } } } = edge;
     return {
+      id,
       title,
+      date,
+      slug
     };
   });
   return (
@@ -18,9 +21,27 @@ const Blog = ({ data }) => {
   );
 };
 
-// TODO: add proptype
+Blog.defaultProps = {
+  data: {}
+};
+
 Blog.propTypes = {
-  data: PropTypes.any,
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({
+        node: PropTypes.shape({
+          frontmatter: PropTypes.shape({
+            title: PropTypes.string,
+            date: PropTypes.string
+          }),
+          id: PropTypes.string,
+          fields: PropTypes.shape({
+            slug: PropTypes.string
+          })
+        })
+      }))
+    })
+  })
 };
 
 export default Blog;
@@ -40,7 +61,10 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
             type
           }
-          excerpt
+          excerpt,
+          fields { 
+            slug 
+          }
         }
       }
     }
