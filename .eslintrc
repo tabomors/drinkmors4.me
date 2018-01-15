@@ -9,6 +9,8 @@
     "graphql": true
   },
   "rules": {
+    "function-paren-newline": "off",
+    "comma-dangle": "off",
     "arrow-parens": 0,
     "quotes": [2, "single"],
     "semi": [2, "always"],
