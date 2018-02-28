@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import styled from 'styled-components';
 import Logo from './Logo';
 import NavMenu from './NavMenu';
 
+const HeaderElement = styled.header`
+  max-width: 750px;
+  margin: auto;
+`;
+
 const Header = ({ nav }) => (
-  <header>
+  <HeaderElement>
     <nav>
       <Logo />
       <NavMenu items={nav} />
     </nav>
-  </header>
+  </HeaderElement>
 );
 
 Header.defaultProps = {
