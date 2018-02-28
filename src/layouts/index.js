@@ -1,13 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import styled, { injectGlobal } from 'styled-components';
 import Header from '../components/Header';
+
+// eslint-disable-next-line
+const globalStyles = injectGlobal`
+  *,
+  *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+`;
+
+const FullHeightWrapper = styled.div`
+  height: 100vh;
+`;
+
+const MainContainer = styled.main`
+  max-width: 750px;
+  margin: auto;
+`;
 
 const TemplateWrapper = ({ children, data }) => {
   const { site: { siteMetadata: { nav } } } = data;
 
   return (
-    <div>
+    <FullHeightWrapper>
       <Helmet
         title="drinkMors4.me"
         meta={[
@@ -16,8 +38,8 @@ const TemplateWrapper = ({ children, data }) => {
         ]}
       />
       <Header nav={nav} />
-      <div>{children()}</div>
-    </div>
+      <MainContainer>{children()}</MainContainer>
+    </FullHeightWrapper>
   );
 };
 
