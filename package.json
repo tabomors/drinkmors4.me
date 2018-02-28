@@ -7,11 +7,16 @@
     "gatsby": "^1.9.218",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-styled-components": "^2.0.8",
+    "gatsby-plugin-typography": "^1.7.15",
     "gatsby-source-filesystem": "^1.5.24",
     "gatsby-transformer-remark": "^1.7.33",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "styled-components": "^3.1.6",
+    "typography": "^0.16.6",
+    "typography-theme-us-web-design-standards": "^0.16.9"
   },
   "keywords": [
     "gatsby"
