@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const LogoWrapper = styled.h1`
   margin: 0;
+  padding-bottom: 15px;
 `;
 
 const LogoText = styled.strong`

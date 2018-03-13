@@ -8,16 +8,21 @@ const List = styled.ul`
   margin: 0;
   display: flex;
   justify-content: space-between;
-  max-width: 50%;
-  margin: auto;
+`;
+
+const Li = styled.li`
+  margin-right: 20px;
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 const NavMenu = ({ items }) => (
   <List>
     {items.map(({ name, path }) => (
-      <li key={name}>
+      <Li key={name}>
         <Link to={path}>{name}</Link>
-      </li>
+      </Li>
       ))}
   </List>
 );
