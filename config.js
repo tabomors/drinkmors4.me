@@ -26,7 +26,7 @@ module.exports = {
   ],
   author: {
     name: "Stas Morozevich",
-    photo: "/photo.jpg",
+    photo: "/avatar_v1.jpg",
     bio: "Clojure/JavaScript all the things",
     contacts: {
       email: "#",
