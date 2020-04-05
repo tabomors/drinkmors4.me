@@ -7,7 +7,7 @@ module.exports = {
         Constantly trying to increase the maintainability of the code by decreasing its complexity (hopefully it works out) 
         and probably have good enough ability to research. 
         Currently, I am working as a frontend developer with clients from Europe in the tourism sphere. 
-        If you are interested in more please hit me up. There are some links you can use to find me:
+        If you are interested in more please hit me up. There are some links related to me:
       `,
       links: [],
     },
