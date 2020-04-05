@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './header';
-import { Box } from 'theme-ui';
+import styled from 'astroturf';
+import { SiteTitleQueryQuery } from '../../graphql-types';
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+const Container = styled('div')`
+  max-width: 800px;
+  margin: auto;
+`;
+
+const Layout: React.FC = ({ children }) => {
+  const data = useStaticQuery<SiteTitleQueryQuery>(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -18,14 +24,12 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <Box sx={{ maxWidth: '1200px', margin: 'auto' }}>
+      <Container>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()}
         </footer>
-      </Box>
+      </Container>
     </>
   );
 };
