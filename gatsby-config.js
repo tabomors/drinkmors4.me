@@ -1,5 +1,22 @@
 module.exports = {
   siteMetadata: {
+    socials: [
+      {
+        label: 'stas.morozevich@gmail.com',
+        href: 'mailto:stas.morozevich@gmail.com',
+        icon: 'email.svg',
+      },
+      {
+        label: 'github.com/tabomors',
+        href: 'https://github.com/tabomors',
+        icon: 'github.svg',
+      },
+      {
+        label: 'linkedin.com/stanislav-morozevich',
+        href: 'https://www.linkedin.com/in/stanislav-morozevich-1918b4115/',
+        icon: 'linkedin.svg',
+      },
+    ],
     homepage: {
       title: 'Stas Morozevich',
       text: `

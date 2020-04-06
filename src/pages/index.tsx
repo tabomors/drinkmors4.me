@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { HomepageQueryQuery } from '../../graphql-types';
+import Socials from '../components/Socials';
 
 const IndexPage = () => {
   const data = useStaticQuery<HomepageQueryQuery>(graphql`
@@ -12,6 +13,11 @@ const IndexPage = () => {
           homepage {
             title
             text
+          }
+          socials {
+            label
+            href
+            icon
           }
         }
       }
@@ -23,6 +29,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <h1>{data.site.siteMetadata.homepage.title}</h1>
       <p>{data.site.siteMetadata.homepage.text}</p>
+      <Socials />
     </Layout>
   );
 };
