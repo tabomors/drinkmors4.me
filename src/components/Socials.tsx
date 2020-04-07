@@ -25,7 +25,7 @@ const SocialLink = styled.a`
   align-items: center;
 
   span {
-    font-size: 13px;
+    font-size: 14px;
     white-space: nowrap;
   }
 `;
@@ -58,7 +58,7 @@ const Socials: React.FC = () => {
     <SocialsList>
       {data.site.siteMetadata.socials.map(({ href, icon, label }) => {
         return (
-          <SocialItem>
+          <SocialItem key={href}>
             <SocialLink href={href}>
               <ImageContainer>
                 <img src={`/icons/${icon}`} />
