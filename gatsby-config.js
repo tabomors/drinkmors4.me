@@ -34,6 +34,7 @@ module.exports = {
     author: '@tabomors',
   },
   plugins: [
+    'gatsby-plugin-preact',
     'gatsby-plugin-typescript',
     'gatsby-plugin-graphql-codegen',
     'gatsby-plugin-postcss',
