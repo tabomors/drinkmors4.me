@@ -2483,11 +2483,6 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type SocialsQueryQueryVariables = {};
-
-
-export type SocialsQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<{ socials?: Maybe<Array<Maybe<Pick<SiteSiteMetadataSocials, 'label' | 'href' | 'icon'>>>> }> }> };
-
 export type Unnamed_1_QueryVariables = {};
 
 
@@ -2502,6 +2497,11 @@ export type SeoQueryQueryVariables = {};
 
 
 export type SeoQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
+export type SocialsQueryQueryVariables = {};
+
+
+export type SocialsQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<{ socials?: Maybe<Array<Maybe<Pick<SiteSiteMetadataSocials, 'label' | 'href' | 'icon'>>>> }> }> };
 
 export type HomepageQueryQueryVariables = {};
 

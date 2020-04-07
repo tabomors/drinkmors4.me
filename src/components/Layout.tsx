@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import Header from './header';
+import Header from './Header';
 import styled from 'astroturf';
 import { SiteTitleQueryQuery } from '../../graphql-types';
 
@@ -32,10 +31,6 @@ const Layout: React.FC = ({ children }) => {
       </Container>
     </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
