@@ -26,7 +26,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="About me" />
       <h1>{data.site.siteMetadata.homepage.title}</h1>
       <p>{data.site.siteMetadata.homepage.text}</p>
       <Socials />

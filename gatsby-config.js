@@ -20,17 +20,16 @@ module.exports = {
     homepage: {
       title: 'Stas Morozevich',
       text: `
-        👋! I’m a software developer based in Brest, Belarus. Doing mostly web, frontend, in particular, sometimes I get into the backend. 
+        👋! I’m a software developer based in Brest, Belarus. Doing mostly web, front-end, in particular, sometimes I get into the back-end. 
         Constantly trying to increase the maintainability of the code by decreasing its complexity (hopefully it works out) 
         and probably have good enough ability to research. 
-        Currently, I am working as a frontend developer with clients from Europe in the tourism sphere. 
+        Currently, I am working as a front-end developer with clients from Europe in the tourism sphere. 
         If you are interested in more please hit me up. There are some links related to me:
       `,
       links: [],
     },
-    title: "Personal site of Stas' Morozevich",
-    description:
-      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
+    title: 'Stas Morozevich\' site',
+    description: 'I’m a software developer based in Brest, Belarus. Doing web, front-end, back-end.',
     author: '@tabomors',
   },
   plugins: [
