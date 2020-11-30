@@ -12,8 +12,8 @@ module.exports = {
         icon: 'github.svg',
       },
       {
-        label: 'linkedin.com/stanislav-morozevich',
-        href: 'https://www.linkedin.com/in/stanislav-morozevich-1918b4115/',
+        label: 'linkedin.com/stanislau-marazevich',
+        href: 'https://www.linkedin.com/in/stanislau-marazevich-1918b4115/',
         icon: 'linkedin.svg',
       },
     ],
