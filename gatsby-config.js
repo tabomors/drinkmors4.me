@@ -18,17 +18,16 @@ module.exports = {
       },
     ],
     homepage: {
-      title: 'Stas Morozevich',
+      title: 'Stas Marazevich',
       text: `
         👋! I’m a software developer based in Brest, Belarus. Doing mostly web, front-end, in particular, sometimes I get into the back-end. 
         Constantly trying to increase the maintainability of the code by decreasing its complexity (hopefully it works out) 
         and probably have good enough ability to research. 
-        Currently, I am working as a front-end developer with clients from Europe in the tourism sphere. 
-        If you are interested in more please hit me up. There are some links related to me:
+        Currently, I am am on sabbatical leave 🌴 Hit me up if you have any questions!
       `,
       links: [],
     },
-    title: "Stas Morozevich' site",
+    title: "Stas Marazevich' site",
     description:
       'I’m a software developer based in Brest, Belarus. Doing web, front-end, back-end.',
     author: '@tabomors',
