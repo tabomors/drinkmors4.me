@@ -37,15 +37,6 @@ module.exports = {
     'gatsby-plugin-preact',
     'gatsby-plugin-typescript',
     'gatsby-plugin-graphql-codegen',
-    'gatsby-plugin-postcss',
-    {
-      resolve: 'gatsby-plugin-astroturf',
-      options: {
-        tagName: 'css',
-        styledTag: 'styled',
-        extension: '.module.css',
-      },
-    },
 
     'gatsby-plugin-react-helmet',
     {
@@ -72,5 +63,11 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-theme-ui`,
+      options: {
+        preset: '@theme-ui/preset-swiss',
+      },
+    },
   ],
 };

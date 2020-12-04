@@ -1,43 +1,39 @@
+/** @jsx jsx */
+import { jsx, SxStyleProp } from 'theme-ui';
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { SocialsQueryQuery } from '../../graphql-types';
-import styled from 'astroturf';
 
-const MOBILE_WIDTH = '800px'
+const hideText: SxStyleProp = {
+  textIndent: '100%',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+};
 
-const SocialsList = styled.ul`
-  padding: 0;
-  margin: 0 0 20px 0;
-  display: flex;
-  list-style-type: none;
+const socialsListStyles: SxStyleProp = {
+  padding: 0,
+  display: 'flex',
+  listStyleType: 'none'
+};
 
-  @media only screen and (max-width: ${MOBILE_WIDTH}) {
-    flex-direction: column;
-  }
-`;
+const socialLinkStyles: SxStyleProp = {
+  display: 'flex',
+  alignItems: 'center',
+  span: {
+    fontSize: '14px',
+    whiteSpace: 'nowrap',
+    ...hideText,
+  },
+};
 
-const SocialItem = styled.li`
-  flex: 1;
-`;
-
-const SocialLink = styled.a`
-  display: flex;
-  align-items: center;
-
-  span {
-    font-size: 14px;
-    white-space: nowrap;
-  }
-`;
-
-const ImageContainer = styled.div`
-  width: 35px;
-  margin-right: 10px;
-  img {
-    display: block;
-    max-width: 100%;
-  }
-`;
+const imageContainer: SxStyleProp = {
+  width: '35px',
+  marginRight: '10px',
+  img: {
+    display: 'block',
+    maxWidth: '100%',
+  },
+};
 
 const Socials: React.FC = () => {
   const data = useStaticQuery<SocialsQueryQuery>(graphql`
@@ -55,20 +51,19 @@ const Socials: React.FC = () => {
   `);
 
   return (
-    <SocialsList>
+    <div sx={socialsListStyles}>
       {data.site.siteMetadata.socials.map(({ href, icon, label }) => {
         return (
-          <SocialItem key={href}>
-            <SocialLink href={href}>
-              <ImageContainer>
+          <div key={href}>
+            <a href={href} sx={socialLinkStyles} title={label}>
+              <div sx={imageContainer}>
                 <img src={`/icons/${icon}`} />
-              </ImageContainer>
-              <span>{label}</span>
-            </SocialLink>
-          </SocialItem>
+              </div>
+            </a>
+          </div>
         );
       })}
-    </SocialsList>
+    </div>
   );
 };
 
