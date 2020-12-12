@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     socials: [
@@ -68,5 +70,13 @@ module.exports = {
         preset: '@theme-ui/preset-swiss',
       },
     },
+    {
+      resolve: 'gatsby-github-md-gists',
+      options: {
+        author: process.env.author,
+        token: process.env.token,
+      },
+    },
+    'gatsby-transformer-remark',
   ],
 };
