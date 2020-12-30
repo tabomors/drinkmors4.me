@@ -3,4 +3,8 @@ import { merge } from 'theme-ui';
 
 // merge will deeply merge custom values with the
 // unknown theme's defaults
-export default merge(theme, {});
+export default merge(theme, {
+  colors: {
+    primary: '#cd3000',
+  },
+});

@@ -1,6 +1,6 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const blogPostTemplate = require.resolve(`./src/templates/CvTemplate.tsx`);
+  const cvTemplate = require.resolve(`./src/templates/CvTemplate.tsx`);
   const cvsResult = await graphql(`
     {
       allMarkdownRemark(filter: { frontmatter: { type: { eq: "cv" } } }) {
@@ -22,7 +22,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   cvsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
-      component: blogPostTemplate,
+      component: cvTemplate,
       context: {
         // additional data can be passed via context
         slug: node.frontmatter.slug,

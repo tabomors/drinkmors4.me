@@ -4,6 +4,11 @@ module.exports = {
   siteMetadata: {
     socials: [
       {
+        label: 'My CV',
+        href: '/cv/smarazevich',
+        icon: 'cv.svg',
+      },
+      {
         label: 'stas.morozevich@gmail.com',
         href: 'mailto:stas.morozevich@gmail.com',
         icon: 'email.svg',
@@ -25,7 +30,7 @@ module.exports = {
         👋! I’m a software developer based in Brest, Belarus. Doing mostly web, front-end, in particular, sometimes I get into the back-end. 
         Constantly trying to increase the maintainability of the code by decreasing its complexity (hopefully it works out) 
         and probably have good enough ability to research. 
-        Currently, I am am on sabbatical leave 🌴 Hit me up if you have any questions!
+        Currently, I am on sabbatical leave 🌴 Hit me up if you have any questions!
       `,
       links: [],
     },
