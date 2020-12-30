@@ -1,8 +1,11 @@
 /** @jsx jsx */
 import { jsx, SxStyleProp } from 'theme-ui';
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { SocialsQueryQuery } from '../../graphql-types';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import {
+  SocialsQueryQuery,
+  SiteSiteMetadataSocials,
+} from '../../graphql-types';
 
 const hideText: SxStyleProp = {
   textIndent: '100%',
@@ -13,7 +16,7 @@ const hideText: SxStyleProp = {
 const socialsListStyles: SxStyleProp = {
   padding: 0,
   display: 'flex',
-  listStyleType: 'none'
+  listStyleType: 'none',
 };
 
 const socialLinkStyles: SxStyleProp = {
@@ -35,6 +38,20 @@ const imageContainer: SxStyleProp = {
   },
 };
 
+const SocialLink: React.FC<SiteSiteMetadataSocials> = ({
+  href,
+  label,
+  icon,
+}) => {
+  return (
+    <a href={href} sx={socialLinkStyles} title={label}>
+      <div sx={imageContainer}>
+        <img src={`/icons/${icon}`} />
+      </div>
+    </a>
+  );
+};
+
 const Socials: React.FC = () => {
   const data = useStaticQuery<SocialsQueryQuery>(graphql`
     query SocialsQuery {
@@ -52,14 +69,16 @@ const Socials: React.FC = () => {
 
   return (
     <div sx={socialsListStyles}>
-      {data.site.siteMetadata.socials.map(({ href, icon, label }) => {
+      {data.site.siteMetadata.socials.map((social) => {
         return (
-          <div key={href}>
-            <a href={href} sx={socialLinkStyles} title={label}>
-              <div sx={imageContainer}>
-                <img src={`/icons/${icon}`} />
-              </div>
-            </a>
+          <div key={social.href}>
+            {social.href.startsWith('/') ? (
+              <Link to={social.href}>
+                <SocialLink label={social.label} icon={social.icon} />
+              </Link>
+            ) : (
+              <SocialLink {...social} />
+            )}
           </div>
         );
       })}
