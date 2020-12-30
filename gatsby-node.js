@@ -1,9 +1,20 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const cvTemplate = require.resolve(`./src/templates/CvTemplate.tsx`);
-  const cvsResult = await graphql(`
+  const cvTemplate = require.resolve('./src/templates/CvTemplate.tsx');
+  const res = await graphql(`
     {
-      allMarkdownRemark(filter: { frontmatter: { type: { eq: "cv" } } }) {
+      cvs: allMarkdownRemark(filter: { frontmatter: { type: { eq: "cv" } } }) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+      blogPosts: allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "blog-post" } } }
+      ) {
         edges {
           node {
             frontmatter {
@@ -14,12 +25,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     }
   `);
+
   // Handle errors
-  if (cvsResult.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
+  if (res.errors) {
+    reporter.panicOnBuild('Error while running GraphQL query.');
     return;
   }
-  cvsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+
+  res.data.cvs.edges.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.slug,
+      component: cvTemplate,
+      context: {
+        // additional data can be passed via context
+        slug: node.frontmatter.slug,
+      },
+    });
+  });
+
+  res.data.blogPosts.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
       component: cvTemplate,

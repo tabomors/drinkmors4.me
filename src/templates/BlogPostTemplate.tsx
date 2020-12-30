@@ -7,7 +7,7 @@ import Layout, {
   containerStyles,
 } from '../components/Layout';
 
-const CvTemplate = ({
+const BlogPostTemplate = ({
   data, // this prop will be injected by the GraphQL query below.
 }) => {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
@@ -39,4 +39,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default CvTemplate;
+export default BlogPostTemplate;

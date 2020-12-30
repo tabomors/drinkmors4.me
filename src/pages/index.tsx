@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { useStaticQuery, graphql } from 'gatsby';
-import Layout, { Copyright, containerStyles } from '../components/Layout';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import Layout, { containerStyles, CommonFooterContent } from '../components/Layout';
 import SEO from '../components/Seo';
 import { HomepageQueryQuery } from '../../graphql-types';
-import Socials from '../components/Socials';
 
 const IndexPage = () => {
   const data = useStaticQuery<HomepageQueryQuery>(graphql`
@@ -22,31 +21,48 @@ const IndexPage = () => {
           }
         }
       }
+      blog: allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "blog-post" } } }
+        sort: { order: DESC, fields: frontmatter___date }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+              type
+              title
+              date(formatString: "MMMM DD, YYYY")
+            }
+          }
+        }
+      }
     }
   `);
 
   return (
     <Layout
       headerContent={
-        <h1 sx={{ ...containerStyles, color: 'primary', py: 3 }}>
+        <h1 sx={{ ...containerStyles, py: 3 }}>
           {data.site.siteMetadata.homepage.title}
         </h1>
       }
       footerContent={
-        <div
-          sx={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-          }}
-        >
-          <Socials />
-          <Copyright />
-        </div>
+        <CommonFooterContent />
       }
     >
       <SEO title="About me" />
       <p sx={{ margin: 0 }}>{data.site.siteMetadata.homepage.text}</p>
+      <ul>
+        {data.blog.edges.map(({ node }, i) => {
+          return (
+            <li key={i}>
+              <Link to={node.frontmatter.slug}>
+                {node.frontmatter.title} | {node.frontmatter.date}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </Layout>
   );
 };
