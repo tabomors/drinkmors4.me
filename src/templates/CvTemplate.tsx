@@ -6,6 +6,7 @@ import Layout, {
   CommonFooterContent,
   containerStyles,
 } from '../components/Layout';
+import SEO from '../components/Seo';
 
 const CvTemplate = ({
   data, // this prop will be injected by the GraphQL query below.
@@ -21,6 +22,7 @@ const CvTemplate = ({
         </div>
       }
     >
+      <SEO title={'CV'} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );

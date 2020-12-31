@@ -6,6 +6,7 @@ import Layout, {
   CommonFooterContent,
   containerStyles,
 } from '../components/Layout';
+import SEO from '../components/Seo';
 
 const BlogPostTemplate = ({
   data, // this prop will be injected by the GraphQL query below.
@@ -21,6 +22,7 @@ const BlogPostTemplate = ({
         </div>
       }
     >
+      <SEO title={frontmatter.title} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
