@@ -22,7 +22,7 @@ const CvTemplate = ({
         </div>
       }
     >
-      <SEO title={'CV'} />
+      <SEO title={'CV'} description={markdownRemark.excerpt} />
       <div sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <a href={`/static/${frontmatter.pdfName}.pdf`} target="_blank">
           Download CV 📥
@@ -37,6 +37,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         slug
         title

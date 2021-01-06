@@ -3189,7 +3189,7 @@ export type Unnamed_3_QueryVariables = Exact<{
 
 
 export type Unnamed_3_Query = { markdownRemark?: Maybe<(
-    Pick<MarkdownRemark, 'html'>
+    Pick<MarkdownRemark, 'html' | 'excerpt'>
     & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'slug' | 'title' | 'type' | 'pdfName'>> }
   )> };
 
