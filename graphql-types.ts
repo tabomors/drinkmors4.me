@@ -899,6 +899,7 @@ export type GithubMarkdownFileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___slug'
   | 'childMarkdownRemark___frontmatter___type'
   | 'childMarkdownRemark___frontmatter___date'
+  | 'childMarkdownRemark___frontmatter___pdfName'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___html'
@@ -1659,6 +1660,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___slug'
   | 'frontmatter___type'
   | 'frontmatter___date'
+  | 'frontmatter___pdfName'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'html'
@@ -1781,6 +1783,7 @@ export type MarkdownRemarkFrontmatter = {
   slug?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
+  pdfName?: Maybe<Scalars['String']>;
 };
 
 
@@ -1796,6 +1799,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<DateQueryOperatorInput>;
+  pdfName?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -3186,7 +3190,7 @@ export type Unnamed_3_QueryVariables = Exact<{
 
 export type Unnamed_3_Query = { markdownRemark?: Maybe<(
     Pick<MarkdownRemark, 'html'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'slug' | 'title' | 'type'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'slug' | 'title' | 'type' | 'pdfName'>> }
   )> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;

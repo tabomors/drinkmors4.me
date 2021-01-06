@@ -23,6 +23,11 @@ const CvTemplate = ({
       }
     >
       <SEO title={'CV'} />
+      <div sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <a href={`/static/${frontmatter.pdfName}.pdf`} target="_blank">
+          Download CV 📥
+        </a>
+      </div>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
@@ -36,6 +41,7 @@ export const pageQuery = graphql`
         slug
         title
         type
+        pdfName
       }
     }
   }
