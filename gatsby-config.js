@@ -37,7 +37,7 @@ module.exports = {
     },
     title: "Stas Marazevich' site",
     description:
-      'I’m a software developer based in Brest, Belarus. Doing web, front-end, back-end.',
+      'I’m a software developer. Doing mostly JS (Node.js, React)...',
     author: '@tabomors',
   },
   plugins: [
