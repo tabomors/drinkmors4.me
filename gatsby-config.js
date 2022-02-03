@@ -24,20 +24,9 @@ module.exports = {
         icon: 'linkedin.svg',
       },
     ],
-    homepage: {
-      title: 'Stas Marazevich',
-      text: `
-        👋! I’m a software developer based in Brest, Belarus. Doing mostly web but interested in many aspects of software development. 
-        Constantly trying to increase the maintainability of the code by decreasing its complexity (hopefully it works out) 
-        and probably have good enough ability to research. 
-        Currently, I am on sabbatical leave 🌴 doing some pet projects and learning new things. 
-        Hit me up if you have any questions!
-      `,
-      links: [],
-    },
     title: "Stas Marazevich' site",
     description:
-      'I’m a software developer. Doing mostly JS (Node.js, React)...',
+      'I’m a software developer. Doing mostly web...',
     author: '@tabomors',
   },
   plugins: [
@@ -51,6 +40,13 @@ module.exports = {
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown-pages`,
       },
     },
     'gatsby-transformer-sharp',

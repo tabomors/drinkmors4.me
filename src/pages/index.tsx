@@ -1,24 +1,22 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import Layout, { containerStyles, CommonFooterContent } from '../components/Layout';
+import Layout, {
+  containerStyles,
+  CommonFooterContent,
+} from '../components/Layout';
 import SEO from '../components/Seo';
 import { HomepageQueryQuery } from '../../graphql-types';
 
 const IndexPage = () => {
   const data = useStaticQuery<HomepageQueryQuery>(graphql`
     query HomepageQuery {
-      site {
-        siteMetadata {
-          homepage {
-            title
-            text
-          }
-          socials {
-            label
-            href
-            icon
-          }
+      markdownRemark(frontmatter: { slug: { eq: "/" } }) {
+        html
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          slug
+          title
         }
       }
       blog: allMarkdownRemark(
@@ -43,15 +41,16 @@ const IndexPage = () => {
     <Layout
       headerContent={
         <h1 sx={{ ...containerStyles, py: 3 }}>
-          {data.site.siteMetadata.homepage.title}
+          {data.markdownRemark.frontmatter.title}
         </h1>
       }
-      footerContent={
-        <CommonFooterContent />
-      }
+      footerContent={<CommonFooterContent />}
     >
       <SEO title="About me" />
-      <p sx={{ margin: 0 }}>{data.site.siteMetadata.homepage.text}</p>
+      <div
+        sx={{ margin: 0 }}
+        dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+      />
       <ul>
         {data.blog.edges.map(({ node }, i) => {
           return (
