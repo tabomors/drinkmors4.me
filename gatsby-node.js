@@ -104,7 +104,8 @@ exports.createPagesStatefully = async ({ graphql }) => {
         path,
         format: 'A4',
         scale: 0.8,
-        margin: { left: 30, right: 30, top: 15 },
+        margin: { left: 30, right: 30, top: 15, bottom: 15 },
+        timeout: 60000,
       });
     }
   } catch (error) {
